@@ -1,0 +1,13 @@
+name: Keep URL Alive
+
+on:
+  schedule:
+    # Runs every day at 12:00 UTC
+    - cron: '0 12 * * *'
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send GET request to keep the URL alive
+        run: curl -s -o /dev/null https://viking-sku-matcher.streamlit.app/
